@@ -26,7 +26,6 @@ let (.-.) (x : int * int * int) (y : int * int * int) : int * int * int =
     if result <= 0 then (0, 0, 0) else convertToThree result
 
 // 23.4.2
-
 let (.+) (x: float * float) (y: float * float) =
     let (a, b) = x;
     let (c, d) = y;
@@ -44,5 +43,6 @@ let (.*) (x: float * float) (y: float * float) =
 
 let (./) (x: float * float) (y: float * float) =
     let (c, d) = y;
-    let reverseNum = (c/(c**2 + d**2), -d/(c**2+d**2))
+    let denominator = c ** 2.0 + d ** 2.0
+    let reverseNum = (c / denominator, -d / denominator)
     x .* reverseNum
