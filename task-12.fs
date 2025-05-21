@@ -14,7 +14,8 @@ let rec dnto n =
 // 34.3
 let evenn n =
     let rec even m =
-        if m <= 0 then []
+        if m <= 1 then []
+        elif m = n then 0 :: 2 :: even (m-1)
         else (2 * n - 2 * (m - 1)) :: even (m - 1)
     even n
 
