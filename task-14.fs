@@ -36,7 +36,7 @@ let rec plus (xs1, xs2) =
     | ([], []) -> []
     | (tail1, []) -> tail1
     | ([], tail2) -> tail2
-    | (head1 :: tail1, head2 :: tail2) -> if head1 <= head2 then head1 :: head2 :: plus (tail1, tail2) else head2 :: head1 :: plus (tail1, tail2)
+    | (head1 :: tail1, head2 :: tail2) -> if head1 <= head2 then head1 :: plus (tail1, head2 :: tail2) else head2 :: plus (head1 :: tail1, tail2)
 
 // 40.2.5
 let rec minus (xs1, xs2) =
