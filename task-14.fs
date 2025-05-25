@@ -47,6 +47,36 @@ let rec minus (xs1, xs2) =
     | (head1 :: tail1, tail2) -> if count(tail2, head1) > 0 then minus (tail1, remove(tail2, head1)) else head1 :: minus (tail1, tail2)
 
 
+// 40.3.1
+let rec smallest = function
+    | [] -> None
+    | [x] -> Some x
+    | head1 :: head2 :: tail -> if head1 <= head2 then smallest(head1 :: tail) else smallest(head2 :: tail)
 
+// 40.3.2
+let rec delete (n, xs) =
+   match xs with
+    | [] -> []
+    | head :: tail -> if head = n then tail else head :: delete (n, tail)
+
+// 40.3.3
+let rec sort = function
+    | [] -> []
+    | [x] -> [x]
+    | head :: tail ->
+        let minTail = Option.get (smallest tail)
+        if head <= minTail
+        then
+            head :: sort tail
+        else
+            let nextTail = delete (minTail, tail)
+            minTail :: sort (head :: nextTail)
+
+// 40.4
+let revrev lst =
+    let rec reverseLst = function
+        | [] -> []
+        | head :: tail -> List.rev head :: reverseLst tail
+    List.rev (reverseLst lst)
 
 
