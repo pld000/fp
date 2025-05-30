@@ -1,6 +1,8 @@
 // 42.3
 let rec allSubsets n k =
-    if k < 0 || k > n then
+    if n = k then
+        Set.ofList [Set.ofList [1 .. n]]
+    elif k < 0 || k > n then
         Set.empty
     elif k = 0 then
         Set.ofList [Set.empty]
