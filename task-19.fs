@@ -8,7 +8,7 @@ let rec fibo1 n n1 n2 =
 
 // 48.4.2
 let rec fibo2 n c =
-    if n <= 2 then
-        c 1 0
+    if n <= 0 then
+        c 0 1
     else
-        fibo2 (n - 1) (fun n1 -> fun n2 -> n1 + n2)
+        fibo2 (n - 1) (fun n1 -> fun n2 -> c n2 (n1 + n2))
