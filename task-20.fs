@@ -1,6 +1,6 @@
 // 49.5.1
 //let even_seq = Seq.initInfinite (fun i -> i) |> Seq.filter (fun x -> x % 2 = 0)
-let even_seq = Seq.unfold (fun x -> Some(x, x+2)) 0
+let even_seq = Seq.unfold (fun x -> Some(x, x+2)) 2
 
 // 49.5.2
 let fac_seq = Seq.initInfinite (fun i ->
